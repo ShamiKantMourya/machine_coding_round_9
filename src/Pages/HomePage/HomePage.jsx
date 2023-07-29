@@ -1,6 +1,7 @@
 import React from 'react';
-import {categories} from "../../Data/CategoriesData";
+import { Link } from "react-router-dom";
 
+import { categories } from "../../Data/CategoriesData";
 import "./HomePage.css";
 import NavBar from '../../Components/NavBar/NavBar';
 
@@ -14,23 +15,26 @@ const HomePage = () => {
             <div className='categories'>
                 <h3 className='categories-list'>Categories</h3>
                 <div className='category-data'>
-            {
-                    categories && categories.map((category) => (
-                        <div className='category-conatiner' key={category._id}>
-                        <div className='category-box'>
-                            <div className='img-box'>
-                                <img src= {category.thumbnail} alt='thumbnail' />
+                    {
+                        categories && categories.map((category) => (
+                            <div className='category-conatiner' key={category._id}>
+                                <Link to={`/${category.category}`}>
+                                    <div className='category-box'>
+                                        <div className='img-box'>
+                                            <img src={category.thumbnail} alt='thumbnail' />
+
+                                        </div>
+                                        <div className='category-name'>
+                                            <p className='category-name-text'>{category.category}</p>
+                                        </div>
+                                    </div>
+                                </Link>
                             </div>
-                            <div className='category-name'>
-                                <p className='category-name-text'>{category.category}</p>
-                            </div>
-                        </div>
-                        </div>
-                    ))
-                }
+                        ))
+                    }
+                </div>
             </div>
-            </div>
-        </div>
+        </div >
     )
 }
 

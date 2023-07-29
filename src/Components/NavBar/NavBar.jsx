@@ -33,7 +33,7 @@ const NavBar = () => {
             >
                 <div className='navlink-icons'>
                     <MdExplore />
-                    <p>Explore</p>
+                    <p className='navlink-text'>Explore</p>
                 </div>
             </NavLink>
             <NavLink
@@ -43,7 +43,7 @@ const NavBar = () => {
             >
                 <div className='navlink-icons'>
                     <MdOutlinePlaylistAdd />
-                    <p>PlayList</p>
+                    <p className='navlink-text'>PlayList</p>
                 </div>
             </NavLink>
             <NavLink
@@ -53,7 +53,7 @@ const NavBar = () => {
             >
                 <div className='navlink-icons'>
                     <MdOutlineWatchLater />
-                    <p>Watch Later</p>
+                    <p className='navlink-text'>Watch Later</p>
                 </div>
             </NavLink>
         </div>

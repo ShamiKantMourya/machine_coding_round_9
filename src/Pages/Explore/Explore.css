@@ -1,7 +1,30 @@
-.explore{
+.explore {
     display: grid;
     grid-template-columns: 2rem 1fr 3fr 2rem;
 }
-.explore-section{
+
+.explore-section {
     grid-column: 3/4;
+    display: flex;
+    flex-direction: column;
+}
+.searched-video{
+    display: flex;
+    flex-wrap: wrap;
+}
+.explore-section input{
+    display: flex;
+   margin: 10px;
+}
+input::placeholder{
+    font-weight: 500;
+}
+.input-search {
+    display: flex;
+    justify-content: center;
+    width: 15rem;
+    height: 2rem;
+    border-radius: 5px;
+    padding: 0px 5px;
+    
 }

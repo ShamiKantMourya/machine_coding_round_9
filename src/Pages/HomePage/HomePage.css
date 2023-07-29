@@ -12,6 +12,10 @@
     display: flex;
     flex-wrap: wrap;
 }
+.categories-list{
+    font-size: 30px;
+    display: flex;
+}
 .category-box{
     display: flex;
     flex-direction: column;
@@ -21,6 +25,7 @@
     padding: 5px 5px;
     border-radius: 8px;
     margin: 5px 5px;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
 .img-box{
     display: flex;
@@ -35,5 +40,5 @@
     height: 15rem;
     width: 13rem;
     padding: 5px 5px;
-    border-radius: 5px;
+    border-radius: 10px;
 }
