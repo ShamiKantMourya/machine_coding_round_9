@@ -1,0 +1,10 @@
+.homepage{
+    display: grid;
+    grid-template-columns: 2rem 1fr 3fr 2rem;
+}
+.navbar-side{
+    grid-column: 2/3;
+}
+.categories{
+    grid-column: 3/4;
+}
