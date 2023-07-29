@@ -8,3 +8,32 @@
 .categories{
     grid-column: 3/4;
 }
+.category-data{
+    display: flex;
+    flex-wrap: wrap;
+}
+.category-box{
+    display: flex;
+    flex-direction: column;
+    height: 18rem;
+    width: 14rem;
+    border: 1px solid black;
+    padding: 5px 5px;
+    border-radius: 8px;
+    margin: 5px 5px;
+}
+.img-box{
+    display: flex;
+    height: 15rem;
+    width: 13rem;
+    align-items: center;
+}
+.img-box img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 15rem;
+    width: 13rem;
+    padding: 5px 5px;
+    border-radius: 5px;
+}

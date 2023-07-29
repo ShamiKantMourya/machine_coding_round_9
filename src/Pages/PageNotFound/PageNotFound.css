@@ -1,0 +1,50 @@
+.notfound-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100vw;
+}
+
+.pnf-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.container .pnf-txt {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.pnf-txt {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pnf-link {
+    text-decoration: none;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.error-text {
+    color: var(--ac_black);
+    opacity: 0.6;
+}
+
+.error-text:hover {
+    opacity: 1;
+}
+
+.animation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

@@ -5,6 +5,7 @@ import HomePage from "./Pages/HomePage/HomePage";
 import WatchLater from "./Pages/WatchLater/WatchLater";
 import Explore from "./Pages/Explore/Explore";
 import Playlist from "./Pages/Playlist/Playlist";
+import PageNotFound from "./Pages/PageNotFound/PageNotFound";
 
 function App() {
   return (
@@ -14,6 +15,8 @@ function App() {
       <Route path="/explore" element = {<Explore />} />
       <Route path="/playlist" element = {<Playlist />} />
       <Route path="/watchlater" element = {<WatchLater />} />
+
+      <Route path="*" element = {<PageNotFound />} />
      </Routes>
     </div>
   );
