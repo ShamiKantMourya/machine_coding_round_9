@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
-import { AiFillEye } from "react-icons/ai";
-import { Link } from "react-router-dom";
 
 import { videos } from "../../Data/VideosData";
 import NavBar from '../../Components/NavBar/NavBar';
 import "./Explore.css";
+import Video from '../../Components/Video/Video';
 
 const Explore = () => {
   const [query, setQuery] = useState("");
@@ -35,20 +34,7 @@ const Explore = () => {
         <div className='searched-video'>
           {
             searchedVideo && searchedVideo.map((video) => (
-              <div className='video-box' key={video._id}>
-                <Link to={`/category/${video._id}`} className='video-links'>
-                  <div className='video-container'>
-                    <div className='video-thumbnail'>
-                      <img src={video.thumbnail} alt='origami' />
-                    </div>
-                    <p className='video-title'>{video.title}</p>
-                    <div className='video-views-creator'>
-                      <p className='views'><AiFillEye />{video.views}</p>
-                      <p className='creator'>{video.creator}</p>
-                    </div>
-                  </div>
-                </Link>
-              </div>
+             <Video video = {video} />
             ))
           }
         </div>
