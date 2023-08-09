@@ -1,7 +1,27 @@
 .watch-later{
     display: grid;
     grid-template-columns: 2rem 1fr 3fr 2rem;
+    height: 100vh;
 }
 .watchlater-section{
     grid-column: 3/4;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    position: relative;
+}
+.watchlater-text{
+    font-size: 30px;
+    display: flex;
+    justify-content: flex-start;
+}
+.watchlater-video{
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    margin-top: 10px;
+}
+.add-to-watch-later{
+    display: flex;
+    font-size: 20px;
 }
