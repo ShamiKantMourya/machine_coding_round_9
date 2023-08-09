@@ -5,11 +5,13 @@ import { DataContext } from "../../Context/DataContext";
 import "./AddNote.css";
 import { useParams } from "react-router";
 
-const AddNote = () => {
+const AddNote = ({NoteId}) => {
   const { id } = useParams();
   const [note, setNote] = useState("");
-  const { addDataDispatch} = useContext(DataContext);
+  const { notes,addDataDispatch,setNoteId} = useContext(DataContext);
 
+  const singleNote = notes.find((item) => item._id === NoteId);
+  console.log({singleNote});
   // console.log(note, "note");
 
   const addNotesHandler = () => {
@@ -17,6 +19,7 @@ const AddNote = () => {
       type: "add_notes",
       payload: { text: note, videoId: id, _id: uuid() },
     });
+    setNoteId(null);
   };
   return (
     <div className="add-note">
@@ -24,11 +27,12 @@ const AddNote = () => {
         <input
           className="add-note-input"
           type="text"
+          defaultValue={NoteId ? singleNote?.text : note}
           placeholder="Add Notes"
           onChange={(event) => setNote(event.target.value)}
         />
         <button className="add-note-btn" onClick={addNotesHandler}>
-         Add Note
+        { NoteId ? "Update Note" : "Add Note"}
         </button>
       </div>
     </div>
