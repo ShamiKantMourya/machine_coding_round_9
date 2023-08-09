@@ -1,14 +1,19 @@
 import React from 'react';
 import { BrowserRouter as Router } from "react-router-dom";
 import ReactDOM from 'react-dom/client';
-import './index.css';
+
+import { DataContext, DataProvider } from './Context/DataContext';
 import App from './App';
+
+export { DataContext };
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <Router>
-      <App />
+      <DataProvider>
+        <App />
+      </DataProvider>
     </Router>
   </React.StrictMode>
 );
