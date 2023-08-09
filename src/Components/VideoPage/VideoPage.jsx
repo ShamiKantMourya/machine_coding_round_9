@@ -25,6 +25,7 @@ const VideoPage = () => {
   // console.log(watch_later, "watch later video")
   const singleVideo = videos.filter((video) => video._id === Number(id));
   const isInWatchLater = watch_later?.some((video) => video._id === Number(id));
+
   const watchLaterHandler = () => {
     singleVideo.map((video) =>
       addDataDispatch({ type: "watch_video_later", payload: video })
@@ -55,15 +56,15 @@ const VideoPage = () => {
                   <p className="single-video-title-text">{video.title}</p>
                   <div className="icons">
                     {isInWatchLater ? (
-                      <button className="icon" onClick={watchLaterHandler}>
-                        <MdOutlineWatchLater />
-                      </button>
-                    ) : (
                       <button
                         className="icon"
                         onClick={removeWatchLaterHandler}
                       >
                         <MdWatchLater />
+                      </button>
+                    ) : (
+                      <button className="icon" onClick={watchLaterHandler}>
+                        <MdOutlineWatchLater />
                       </button>
                     )}
                     <button className="icon">
