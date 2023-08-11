@@ -1,14 +1,21 @@
 import React, { useContext } from "react";
-import { IoAddCircleOutline } from "react-icons/io5";
+// import { IoAddCircleOutline } from "react-icons/io5";
+import {MdDelete} from "react-icons/md";
 
 import NavBar from "../../Components/NavBar/NavBar";
 import { DataContext } from "../../Context/DataContext";
 import "./Playlist.css";
-import PlaylistModel from "../../Components/PlaylistBox/PlaylistModel";
+// import PlaylistModel from "../../Components/PlaylistBox/PlaylistModel";
 
 const Playlist = () => {
-  const { playlist, playlistModel, setPlaylistModel } = useContext(DataContext);
+  const { playlist, addDataDispatch, playlistModel, setPlaylistModel } = useContext(DataContext);
   console.log(playlist);
+  const deletePlaylistHandler = (playlistId) => {
+    addDataDispatch({
+      type: "delete_playlist",
+      payload: playlistId,
+    });
+  };
 
   return (
     <div className="playlist">
@@ -24,10 +31,11 @@ const Playlist = () => {
               <div className="playlist-box-img"></div>
               <p className="playlist-box-name">{data.name}</p>
               <p className="playlist-box-description">{data.description}</p>
+              <button className="delete-playlist" onClick={() => deletePlaylistHandler(data._id)}><MdDelete /></button>
             </div>
           ))}
           {/* Create Playlist */}
-          <div
+          {/* <div
             className="create-playlist"
             onClick={() => setPlaylistModel(!playlistModel)}
           >
@@ -39,11 +47,11 @@ const Playlist = () => {
             <button className="create-playlist-btn">
               <IoAddCircleOutline />
             </button>
-          </div>
+          </div> */}
         </div>
-        <div className="playlist-model">
+        {/* <div className="playlist-model">
           {playlistModel ? <PlaylistModel /> : null}
-        </div>
+        </div> */}
       </div>
     </div>
   );
