@@ -10,7 +10,7 @@ const Explore = () => {
 
   const searchedVideo = videos.filter((video) => video.category.toLowerCase().includes(query.toLowerCase()));
 
-  console.log(searchedVideo);
+  // console.log(searchedVideo);
   return (
     <div className='explore'>
       <div className='navbar-side'>
