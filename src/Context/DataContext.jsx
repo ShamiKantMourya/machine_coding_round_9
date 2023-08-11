@@ -9,15 +9,17 @@ export const DataProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initial_state);
   const { notes, watch_later,playlist } = state;
   const [noteId, setNoteId] = useState(null);
+  const [playlistModel, setPlaylistModel] = useState(false);
 
   useEffect(() => {
     localStorage.setItem("notes", JSON.stringify(notes));
     localStorage.setItem("watchlater", JSON.stringify(watch_later));
-  }, [notes, watch_later]);
+    localStorage.setItem("playlist", JSON.stringify(playlist));
+  }, [notes, watch_later,playlist]);
 
   return (
     <DataContext.Provider
-      value={{ notes, watch_later,playlist, addDataDispatch: dispatch,noteId, setNoteId }}
+      value={{ notes, watch_later,playlist, addDataDispatch: dispatch,noteId, setNoteId,playlistModel, setPlaylistModel }}
     >
       {children}
     </DataContext.Provider>
