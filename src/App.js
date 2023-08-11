@@ -8,6 +8,7 @@ import Playlist from "./Pages/Playlist/Playlist";
 import PageNotFound from "./Pages/PageNotFound/PageNotFound";
 import Category from "./Components/category/Category";
 import VideoPage from "./Components/VideoPage/VideoPage";
+import PlaylistVideos from "./Pages/PlaylistVideos";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path="/watchlater" element={<WatchLater />} />
         <Route path="/:category" element={<Category />} />
         <Route path="/category/:id" element = {<VideoPage />} />
+        <Route path="/playlist/videos" element = {<PlaylistVideos />} />
         <Route path="*" element={<PageNotFound />} />
       </Routes>
     </div>
