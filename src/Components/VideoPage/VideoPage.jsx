@@ -14,18 +14,27 @@ import NavBar from "../NavBar/NavBar";
 import { DataContext } from "../../Context/DataContext";
 import AddNote from "../AddNote/AddNote";
 import "./VideoPage.css";
+import PlaylistModel from "../PlaylistBox/PlaylistModel";
 
 const VideoPage = () => {
   const { id } = useParams();
   const [model, setModel] = useState(false);
 
   // console.log({noteId});
-  const { notes, addDataDispatch, watch_later,noteId,setNoteId } = useContext(DataContext);
+  const {
+    notes,
+    addDataDispatch,
+    watch_later,
+    noteId,
+    setNoteId,
+    setPlaylistModel,
+    playlistModel,
+  } = useContext(DataContext);
   // const [editNote, setEditNote] = useState();
 
   // console.log(id, "myId");
   // console.log(watch_later, "watchLater");
-  console.log(notes, "my notes");
+  // console.log(notes, "my notes");
   // console.log(watch_later, "watch later video")
   const singleVideo = videos.find((video) => video._id === Number(id));
   const isInWatchLater = watch_later?.some((video) => video._id === Number(id));
@@ -42,7 +51,6 @@ const VideoPage = () => {
   const deleteNoteHandler = (noteId) => {
     addDataDispatch({ type: "delete_note", payload: noteId });
   };
-
   const { _id, src, title } = singleVideo;
 
   return (
@@ -73,7 +81,7 @@ const VideoPage = () => {
                     <MdOutlineWatchLater />
                   </button>
                 )}
-                <button className="icon">
+                <button className="icon" onClick={() => setPlaylistModel(!playlistModel)}>
                   <MdPlaylistAdd />
                 </button>
                 <button className="icon" onClick={() => setModel(!model)}>
@@ -82,7 +90,16 @@ const VideoPage = () => {
               </div>
             </div>
           </div>
-          <div className="add-note-model">{model && <AddNote NoteId={noteId} />}</div>
+          {/* Add Note Model */}
+          <div className="add-note-model">
+            {model && <AddNote NoteId={noteId} />}
+          </div>
+
+          {/* Playlist Model */}
+          <div className="add-playlist-model">
+            {playlistModel && <PlaylistModel />}
+          </div>
+
           <div className="showNotes">
             <h2 className="my-note-text">My Notes</h2>
             <div className="my-notes-box">
@@ -96,9 +113,10 @@ const VideoPage = () => {
                     <div className="my-note-icons">
                       <button
                         className="my-note-icons-btn"
-                        onClick={() =>{ 
+                        onClick={() => {
                           setModel(!model);
-                          setNoteId(note._id)}}
+                          setNoteId(note._id);
+                        }}
                       >
                         {" "}
                         <BiSolidEditAlt />
