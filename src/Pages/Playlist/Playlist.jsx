@@ -1,42 +1,52 @@
-import React, {useContext, useState} from 'react';
-import { IoAddCircleOutline } from 'react-icons/io5';
+import React, { useContext } from "react";
+import { IoAddCircleOutline } from "react-icons/io5";
 
-import NavBar from '../../Components/NavBar/NavBar';
-import { DataContext } from '../../Context/DataContext';
+import NavBar from "../../Components/NavBar/NavBar";
+import { DataContext } from "../../Context/DataContext";
 import "./Playlist.css";
+import PlaylistModel from "../../Components/PlaylistBox/PlaylistModel";
 
 const Playlist = () => {
-const {playlist} = useContext(DataContext);
-const [playlistModel, setPlaylistModel] = useState(false);
-console.log(playlist);
+  const { playlist, playlistModel, setPlaylistModel } = useContext(DataContext);
+  console.log(playlist);
 
   return (
-    <div className='playlist'>
-    <div className='navbar-side'>
+    <div className="playlist">
+      <div className="navbar-side">
         <NavBar />
-    </div>
-    <div className='playlist-section'>
-        <h3 className='playlist-list'>Playlists</h3>
-        <div className='playlist-options'>
-          {
-            playlist.length > 0 ? (
-              <div>
+      </div>
+      <div className="playlist-section">
+        <h3 className="playlist-list">Playlists</h3>
+        <div className="playlist-options">
+          {/* Show Playlist */}
+          {playlist.map((data) => (
+            <div className="playlist-box" key={data._id}>
+              <div className="playlist-box-img"></div>
+              <p className="playlist-box-name">{data.name}</p>
+              <p className="playlist-box-description">{data.description}</p>
+            </div>
+          ))}
+          {/* Create Playlist */}
+          <div
+            className="create-playlist"
+            onClick={() => setPlaylistModel(!playlistModel)}
+          >
+            <div>
+              <p className="create-playlist-text">Click to</p>
+              <p className="create-playlist-text">Create a playlist</p>
+            </div>
 
-              </div>
-            ) : (
-              <div className='create-playlist' onClick={() => setPlaylistModel(!playlistModel)}>
-                <div>
-                <p className='create-playlist-text'>Click to</p>
-                <p className='create-playlist-text'>Create a playlist</p>
-                </div>
-                <button><IoAddCircleOutline /></button>
-              </div>
-            )
-          }
+            <button className="create-playlist-btn">
+              <IoAddCircleOutline />
+            </button>
+          </div>
         </div>
+        <div className="playlist-model">
+          {playlistModel ? <PlaylistModel /> : null}
+        </div>
+      </div>
     </div>
-</div>
-  )
-}
+  );
+};
 
 export default Playlist;
