@@ -8,7 +8,6 @@ export const addWatchLater = () => {
       borderRadius: "10px",
       background: "gray",
       color: "whitesmoke",
-      width: "7rem"
     },
   });
 };
