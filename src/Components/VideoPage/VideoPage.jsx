@@ -15,6 +15,7 @@ import { DataContext } from "../../Context/DataContext";
 import AddNote from "../AddNote/AddNote";
 import "./VideoPage.css";
 import PlaylistModel from "../PlaylistBox/PlaylistModel";
+import {noteDeleted, removeWatchLater, addWatchLater} from "../../Animations/toast";
 
 const VideoPage = () => {
   const { id } = useParams();
@@ -36,14 +37,17 @@ const VideoPage = () => {
   // console.log(videoNote);
   const watchLaterHandler = () => {
     addDataDispatch({ type: "watch_video_later", payload: singleVideo });
+    addWatchLater();
   };
 
   const removeWatchLaterHandler = () => {
     addDataDispatch({ type: "remove_from_watch_later", payload: id });
+    removeWatchLater();
   };
 
   const deleteNoteHandler = (noteId) => {
     addDataDispatch({ type: "delete_note", payload: noteId });
+    noteDeleted();
   };
   const { _id, src, title } = singleVideo;
 

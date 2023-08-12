@@ -7,6 +7,7 @@ import { DataContext } from "../../Context/DataContext";
 import "./Playlist.css";
 import { Link } from "react-router-dom";
 import PlaylistModel from "../../Components/PlaylistBox/PlaylistModel";
+import {deletedPlayList} from "../../Animations/toast";
 
 const Playlist = () => {
   const {
@@ -21,6 +22,7 @@ const Playlist = () => {
       type: "delete_playlist",
       payload: playlistId,
     });
+    deletedPlayList();
   };
 
   return (

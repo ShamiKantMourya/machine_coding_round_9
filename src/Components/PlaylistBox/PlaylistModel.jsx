@@ -1,11 +1,12 @@
 import React, { useContext, useState } from "react";
 import { IoClose } from "react-icons/io5";
 import { v4 as uuid } from "uuid";
+import { useParams } from "react-router";
 
 import { videos } from "../../Data/VideosData";
 import { DataContext } from "../../Context/DataContext";
 import "./PlaylistModel.css";
-import { useParams } from "react-router";
+import {playListCreate, deletedPlayList, addedPlayList} from "../../Animations/toast"
 
 const PlaylistModel = () => {
   const [playlistData, setPlaylistData] = useState({
@@ -30,6 +31,7 @@ const PlaylistModel = () => {
           ...playlistData,
         },
       });
+      playListCreate();
       setPlaylistData({ name: "", description: "", videos: [] });
       setPlaylistModel(false);
     }
@@ -39,6 +41,7 @@ const PlaylistModel = () => {
       type: "add_to_playlist",
       payload: { singleVideo, playlistId },
     });
+    addedPlayList();
   };
 
   const deletePlaylistHandler = (playlistId) => {
@@ -46,6 +49,7 @@ const PlaylistModel = () => {
       type: "delete_playlist",
       payload: playlistId,
     });
+    deletedPlayList();
   };
 
   return (
