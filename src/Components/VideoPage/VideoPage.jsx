@@ -20,7 +20,6 @@ const VideoPage = () => {
   const { id } = useParams();
   const [model, setModel] = useState(false);
 
-  // console.log({noteId});
   const {
     notes,
     addDataDispatch,
@@ -31,11 +30,6 @@ const VideoPage = () => {
     playlistModel,
   } = useContext(DataContext);
   // const [editNote, setEditNote] = useState();
-
-  // console.log(id, "myId");
-  // console.log(watch_later, "watchLater");
-  // console.log(notes, "my notes");
-  // console.log(watch_later, "watch later video")
   const singleVideo = videos.find((video) => video._id === Number(id));
   const isInWatchLater = watch_later?.some((video) => video._id === Number(id));
   const videoNote = notes.filter((note) => note.videoId === id);
@@ -81,7 +75,10 @@ const VideoPage = () => {
                     <MdOutlineWatchLater />
                   </button>
                 )}
-                <button className="icon" onClick={() => setPlaylistModel(!playlistModel)}>
+                <button
+                  className="icon"
+                  onClick={() => setPlaylistModel(!playlistModel)}
+                >
                   <MdPlaylistAdd />
                 </button>
                 <button className="icon" onClick={() => setModel(!model)}>

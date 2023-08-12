@@ -22,6 +22,14 @@ export const reducer = (state, action) => {
         ...state,
         notes: [...state.notes, payload],
       };
+    case "update_note":
+      console.log(state ,payload, "update note")
+      return {
+        ...state,
+        notes: state?.notes?.map((note) =>
+          note._id === payload.NoteId ? {...note, text: payload.note} : note
+        ),
+      };
     case "delete_note":
       return {
         ...state,
@@ -39,17 +47,24 @@ export const reducer = (state, action) => {
           (video) => video._id !== Number(payload)
         ),
       };
-    case "add_to_playlist":
+    case "create_playlist":
       return {
         ...state,
         playlist: [...state.playlist, payload],
       };
+    case "add_to_playlist":
+      return {
+        ...state,
+        playlist: state.playlist.map((item) =>
+          item._id === payload.playlistId
+            ? { ...item, videos: [...item.videos, payload.singleVideo] }
+            : item
+        ),
+      };
     case "delete_playlist":
       return {
         ...state,
-        playlist: [...state.playlist].filter(
-          (data) => data._id !== payload
-        ),
+        playlist: [...state.playlist].filter((data) => data._id !== payload),
       };
     default:
       return state;

@@ -1,0 +1,62 @@
+.playlistModel{
+    display: flex;
+   
+}
+.paylistModel-box{
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    border: 1px solid black;
+    border-radius: 7px;
+    height: auto;
+    width: 15rem;
+    padding: 0px 10px;
+}
+.text-icon-add-to-playlist{
+    display: flex;
+    justify-content: space-between;
+}
+.text-icon-add-to-playlist p{
+    font-size: 20px;
+    font-weight: 500;
+}
+.text-icon-add-to-playlist p:nth-child(2){
+cursor: pointer;
+}
+.paylistModel-box input{
+    display: flex;
+    height: 2rem;
+    width: 100%;
+    border-radius: 5px;
+    padding: 0px 5px;
+    margin: 5px 0px;
+}
+.paylistModel-box button{
+    height: 2rem;
+    border-radius: 7px;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 15px;
+    background-color: #06272b;
+    color: white;
+    margin: 5px 0px;
+}
+.paylistModel-box button:hover{
+    background-color: white;
+    color: #06272b;
+}
+.playlistModel-list{
+    display: flex;
+    justify-content: space-between;
+    height: 2rem;
+    align-items: center;
+    cursor: pointer;
+}
+.close-playlist-btn{
+    cursor: pointer;
+    justify-content: center;
+    align-items: center;
+    padding: 2px 0px;
+    font-size: 20px;
+    font-weight: 500;
+}

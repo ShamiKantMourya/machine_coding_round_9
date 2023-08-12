@@ -45,9 +45,6 @@
 }
 .playlist-options {
   display: flex;
-  height: 10rem;
-  width: 10rem;
-  position: relative;
 }
 .playlist-box {
   display: flex;
@@ -60,6 +57,7 @@
   height: 10rem;
   width: 10rem;
   cursor: pointer;
+  position: relative;
 }
 .playlist-box-name {
   font-size: 20px;
@@ -85,6 +83,10 @@
 }
 .delete-playlist:hover{
     opacity: 0.8;
+}
+.playlist-options a{
+  text-decoration: none;
+  color: rgb(65, 65, 65);
 }
 .playlist-model {
   display: flex;

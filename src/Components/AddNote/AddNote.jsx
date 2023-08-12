@@ -1,25 +1,36 @@
 import React, { useState, useContext } from "react";
 import { v4 as uuid } from "uuid";
-
-import { DataContext } from "../../Context/DataContext";
-import "./AddNote.css";
 import { useParams } from "react-router";
 
-const AddNote = ({NoteId}) => {
+import {noteUpdate, addNote} from "../../Animations/toast";
+import { DataContext } from "../../Context/DataContext";
+import "./AddNote.css";
+
+
+const AddNote = ({ NoteId }) => {
   const { id } = useParams();
   const [note, setNote] = useState("");
-  const { notes,addDataDispatch,setNoteId} = useContext(DataContext);
+  const { notes, addDataDispatch, setNoteId } = useContext(DataContext);
 
   const singleNote = notes.find((item) => item._id === NoteId);
-  console.log({singleNote});
+  console.log({ singleNote });
   // console.log(note, "note");
-
-  const addNotesHandler = () => {
-    addDataDispatch({
-      type: "add_notes",
-      payload: { text: note, videoId: id, _id: uuid() },
-    });
-    setNoteId(null);
+  const notesHandler = () => {
+    if (NoteId) {
+      addDataDispatch({
+        type: "update_note",
+        payload: { NoteId, note },
+      });
+      noteUpdate();
+      setNoteId(null);
+    } else {
+      addDataDispatch({
+        type: "add_notes",
+        payload: { text: note, videoId: id, _id: uuid() },
+      });
+      addNote();
+      setNoteId(null);
+    }
   };
   return (
     <div className="add-note">
@@ -31,8 +42,8 @@ const AddNote = ({NoteId}) => {
           placeholder="Add Notes"
           onChange={(event) => setNote(event.target.value)}
         />
-        <button className="add-note-btn" onClick={addNotesHandler}>
-        { NoteId ? "Update Note" : "Add Note"}
+        <button className="add-note-btn" onClick={notesHandler}>
+          {NoteId ? "Update Note" : "Add Note"}
         </button>
       </div>
     </div>

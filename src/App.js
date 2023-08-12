@@ -1,4 +1,5 @@
 import { Routes, Route } from "react-router-dom";
+import { ToastContainer } from 'react-toastify';
 
 import './App.css';
 import HomePage from "./Pages/HomePage/HomePage";
@@ -20,9 +21,16 @@ function App() {
         <Route path="/watchlater" element={<WatchLater />} />
         <Route path="/:category" element={<Category />} />
         <Route path="/category/:id" element = {<VideoPage />} />
-        <Route path="/playlist/videos" element = {<PlaylistVideos />} />
+        <Route path="/playlist/:id" element = {<PlaylistVideos />} />
         <Route path="*" element={<PageNotFound />} />
       </Routes>
+      <ToastContainer 
+      position="bottom-right"
+      reverseOrder={false}
+      containerStyle={{
+        top: "4rem",
+      }}
+      />
     </div>
   );
 }
