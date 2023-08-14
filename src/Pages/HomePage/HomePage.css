@@ -28,6 +28,7 @@
     font-size: 30px;
     display: flex;
     justify-content: flex-start;
+    color: white;
 }
 
 .category-data {
@@ -39,7 +40,7 @@
 }
 
 .category-conatiner {
-    border: 1px solid black;
+    border: 1px solid whitesmoke;
     margin: 0px 7px 7px 0px;
     border-radius: 8px;
     height: 15rem;
@@ -77,7 +78,7 @@
     justify-content: center;
 }
 .category-name-text{
-    font-size: 18px;
+    font-size:20px;
     font-weight: 500;
-    color: rgb(39, 39, 39);
+    color: white;
 }

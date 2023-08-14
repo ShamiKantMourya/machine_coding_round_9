@@ -17,6 +17,7 @@
     font-size: 30px;
     display: flex;
     justify-content: flex-start;
+    color: white;
 }
 .watchlater-video{
     display: flex;
@@ -27,6 +28,7 @@
 .add-to-watch-later{
     display: flex;
     font-size: 20px;
+    color: white;
 }
 .remove-watchlater-button{
   background-color: rgba(255, 255, 255, 0.733);
