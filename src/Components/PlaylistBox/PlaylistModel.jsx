@@ -6,7 +6,11 @@ import { useParams } from "react-router";
 import { videos } from "../../Data/VideosData";
 import { DataContext } from "../../Context/DataContext";
 import "./PlaylistModel.css";
-import {playListCreate, deletedPlayList, addedPlayList} from "../../Animations/toast"
+import {
+  playListCreate,
+  deletedPlayList,
+  addedPlayList,
+} from "../../Animations/toast";
 
 const PlaylistModel = () => {
   const [playlistData, setPlaylistData] = useState({
@@ -14,7 +18,7 @@ const PlaylistModel = () => {
     description: "",
     videos: [],
   });
-  const { playlist, addDataDispatch, setPlaylistModel } =
+  const { playlist, addDataDispatch, setPlaylistModel, setVideoId } =
     useContext(DataContext);
 
   const { id } = useParams();
@@ -42,6 +46,7 @@ const PlaylistModel = () => {
       payload: { singleVideo, playlistId },
     });
     addedPlayList();
+    setVideoId(id);
   };
 
   const deletePlaylistHandler = (playlistId) => {
@@ -54,6 +59,10 @@ const PlaylistModel = () => {
 
   return (
     <div className="playlistModel">
+      <div
+        className="playlistModel-background"
+        onClick={() => setPlaylistModel(false)}
+      ></div>
       <div className="paylistModel-box">
         <div className="text-icon-add-to-playlist">
           <p className="add-to-playlist-txt">Add to playlist</p>

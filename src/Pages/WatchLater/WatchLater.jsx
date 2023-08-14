@@ -1,13 +1,19 @@
 import React, { useContext } from "react";
 import { AiFillEye } from "react-icons/ai";
+import { MdWatchLater } from "react-icons/md";
 
+import { removeWatchLater } from "../../Animations/toast";
 import NavBar from "../../Components/NavBar/NavBar";
 import { DataContext } from "../../Context/DataContext";
 import "./WatchLater.css";
 
 const WatchLater = () => {
-  const { watch_later } = useContext(DataContext);
-  console.log(watch_later, "watchLater Page");
+  const { watch_later, addDataDispatch } = useContext(DataContext);
+  // console.log(watch_later, "watchLater Page");
+  const removeFromWatchLater = (videoId) => {
+    addDataDispatch({ type: "remove_from_watch_later", payload: videoId });
+    removeWatchLater();
+  };
   return (
     <div className="watch-later">
       <div className="navbar-side">
@@ -20,6 +26,12 @@ const WatchLater = () => {
             watch_later.map((video) => (
               <div className="watch-later-container" key={video._id}>
                 <div className="video-container">
+                  <div className="remove-watchlater-button">
+                    {" "}
+                    <button onClick={() => removeFromWatchLater(video._id)}>
+                      <MdWatchLater />
+                    </button>
+                  </div>
                   <div className="video-thumbnail">
                     <img src={video.thumbnail} alt="origami" />
                   </div>

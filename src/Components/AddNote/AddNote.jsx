@@ -10,7 +10,7 @@ import "./AddNote.css";
 const AddNote = ({ NoteId }) => {
   const { id } = useParams();
   const [note, setNote] = useState("");
-  const { notes, addDataDispatch, setNoteId } = useContext(DataContext);
+  const { notes, addDataDispatch, setNoteId, setModel } = useContext(DataContext);
 
   const singleNote = notes.find((item) => item._id === NoteId);
   console.log({ singleNote });
@@ -34,6 +34,7 @@ const AddNote = ({ NoteId }) => {
   };
   return (
     <div className="add-note">
+      <div className="add-note-background" onClick={() => setModel(false)}></div>
       <div className="add-note-conatiner">
         <input
           className="add-note-input"

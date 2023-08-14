@@ -4,7 +4,7 @@ const getDataFromLocalStorage = (key) => {
 };
 
 const noteListFromLocalStorage = getDataFromLocalStorage("notes");
-const watchLaterFromLocalStorage = getDataFromLocalStorage("watchLater");
+const watchLaterFromLocalStorage = getDataFromLocalStorage("watchlater");
 const playListFromLocalStorage = getDataFromLocalStorage("playlist");
 
 export const initial_state = {

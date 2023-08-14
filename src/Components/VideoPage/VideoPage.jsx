@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, {useContext } from "react";
 import { useParams, Link } from "react-router-dom";
 import {
   MdOutlineWatchLater,
@@ -15,11 +15,14 @@ import { DataContext } from "../../Context/DataContext";
 import AddNote from "../AddNote/AddNote";
 import "./VideoPage.css";
 import PlaylistModel from "../PlaylistBox/PlaylistModel";
-import {noteDeleted, removeWatchLater, addWatchLater} from "../../Animations/toast";
+import {
+  noteDeleted,
+  removeWatchLater,
+  addWatchLater,
+} from "../../Animations/toast";
 
 const VideoPage = () => {
   const { id } = useParams();
-  const [model, setModel] = useState(false);
 
   const {
     notes,
@@ -29,6 +32,8 @@ const VideoPage = () => {
     setNoteId,
     setPlaylistModel,
     playlistModel,
+    model,
+    setModel,
   } = useContext(DataContext);
   // const [editNote, setEditNote] = useState();
   const singleVideo = videos.find((video) => video._id === Number(id));

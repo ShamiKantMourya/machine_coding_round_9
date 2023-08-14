@@ -6,9 +6,12 @@ import Video from "../Components/Video/Video";
 
 const PlaylistVideos = () => {
   const { id } = useParams();
-  const { playlist } = useContext(DataContext);
+  const { playlist, videoId } = useContext(DataContext);
 
   const playlistVideo = playlist.find((item) => item._id === id);
+  // const isInPlaylistVideo = playlistVideo?.videos?.some(
+  //   (item) => item._id === Number(videoId)
+  // );
 
   console.log(playlistVideo, "single Playlist video");
   return (

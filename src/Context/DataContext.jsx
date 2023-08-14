@@ -10,6 +10,8 @@ export const DataProvider = ({ children }) => {
   const { notes, watch_later,playlist } = state;
   const [noteId, setNoteId] = useState(null);
   const [playlistModel, setPlaylistModel] = useState(false);
+  const [model, setModel] = useState(false);
+  const [videoId, setVideoId] = useState(null);
 
   useEffect(() => {
     localStorage.setItem("notes", JSON.stringify(notes));
@@ -19,7 +21,7 @@ export const DataProvider = ({ children }) => {
 
   return (
     <DataContext.Provider
-      value={{ notes, watch_later,playlist, addDataDispatch: dispatch,noteId, setNoteId,playlistModel, setPlaylistModel }}
+      value={{ notes, watch_later,playlist, addDataDispatch: dispatch,noteId, setNoteId,playlistModel, setPlaylistModel, videoId, setVideoId, model, setModel }}
     >
       {children}
     </DataContext.Provider>
