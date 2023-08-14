@@ -24,13 +24,16 @@
     align-items: center;
     height: 2rem;
     width: 100%;
-   border: 1px solid #06272b;
+   border: 1px solid whitesmoke;
    border-radius: 8px;
+   color: white;
 }
 .navlink-text{
     margin-left: 10px;
     display: flex;
     justify-content: flex-start;
+    color: white;
+    font-weight: 600;
 }
 
 /* #06272b */
