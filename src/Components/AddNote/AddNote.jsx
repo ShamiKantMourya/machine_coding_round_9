@@ -13,7 +13,7 @@ const AddNote = ({ NoteId }) => {
   const { notes, addDataDispatch, setNoteId, setModel } = useContext(DataContext);
 
   const singleNote = notes.find((item) => item._id === NoteId);
-  console.log({ singleNote });
+  // console.log({ singleNote });
   // console.log(note, "note");
   const notesHandler = () => {
     if (NoteId) {
