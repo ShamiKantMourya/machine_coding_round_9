@@ -7,15 +7,11 @@ import { DataContext } from "../../Context/DataContext";
 import "./Playlist.css";
 import { Link } from "react-router-dom";
 import PlaylistModel from "../../Components/PlaylistBox/PlaylistModel";
-import {deletedPlayList} from "../../Animations/toast";
+import { deletedPlayList } from "../../Animations/toast";
 
 const Playlist = () => {
-  const {
-    playlist,
-    addDataDispatch,
-    playlistModel,
-    setPlaylistModel,
-  } = useContext(DataContext);
+  const { playlist, addDataDispatch, playlistModel, setPlaylistModel } =
+    useContext(DataContext);
   console.log(playlist);
   const deletePlaylistHandler = (playlistId) => {
     addDataDispatch({

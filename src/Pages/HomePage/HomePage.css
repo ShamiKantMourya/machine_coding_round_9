@@ -1,18 +1,23 @@
-* {
-    /* padding: 0;
-    margin: 0; */
+*,
+*::after,
+*::before {
+    padding: 0;
+    margin: 0;
     box-sizing: border-box;
     /* border: 1px dotted red; */
 }
 
 .homepage {
     display: grid;
-    grid-template-columns: 2rem 1fr 3fr 2rem;
-    height: 100vh;
+    grid-template-columns: 2rem 0.8fr 2.8fr 2rem;
+    height: 100%;
+    width: 100vw;
 }
 
 .navbar-side {
     grid-column: 2/3;
+    height: 100%;
+    width: 100%;
 }
 
 .categories {
@@ -81,4 +86,22 @@
     font-size:20px;
     font-weight: 500;
     color: white;
+}
+
+/* Responsive for mobie */
+
+@media screen and (max-width: 767px) {
+    .homepage{
+        width: 100%;
+        height: 100%;
+        grid-template-columns: 1fr 3fr;
+    }
+    .category-data{
+        margin: 5px 0 ;
+    }
+    .categories-list{
+        display: flex;
+        justify-content: center;
+        margin: 5px 0px;
+    }
 }

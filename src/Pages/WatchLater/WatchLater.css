@@ -49,3 +49,28 @@
     font-size: 25px;
     cursor: pointer;
 }
+
+/* Responsive For Mobile */
+
+@media screen and (max-width: 767px) {
+    .watch-later{
+        display: grid;
+        grid-template-columns: 1fr 3fr;
+    }
+    .watchlater-section{
+        display: flex;
+        grid-column: 2/3;
+    }
+    .watchlater-text{
+        display: flex;
+        justify-content: center;
+    }
+    .watchlater-video{
+        display: flex;
+        justify-content: center;
+    }
+    .watch-later-container{
+        display: flex;
+        justify-content: center;
+    }
+}
